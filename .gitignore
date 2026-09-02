@@ -1,0 +1,19 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Databases & Vector Stores
+chroma_db/
+db/
+
+# Temporary and Uploaded Files
+temp_files/
+
+# Environment variables
+.env
