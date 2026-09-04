@@ -1,4 +1,4 @@
-from langchain_huggingface import HuggingFaceEmbeddings   # مش langchain.embeddings (deprecated)
+from langchain_huggingface import HuggingFaceEmbeddings 
 from langchain_chroma import Chroma
 
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
