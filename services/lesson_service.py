@@ -1,6 +1,5 @@
 from models import Lesson
-from langchain_core.documents import Document   # مش langchain.docstore.document (deprecated)
-
+from langchain_core.documents import Document
 def preprocess_lesson(lesson_obj: Lesson):
     """Preprocess a lesson based on its status."""
     lesson_id = str(lesson_obj.id)
