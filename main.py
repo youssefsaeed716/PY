@@ -6,7 +6,7 @@ import uvicorn
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from services import db_service, etl_service, lesson_service
-
+from services import ai as ai_service
 app = FastAPI(title="PDF RAG Service", version="1.0", description="PROJECT_DESCRIPTION")
 
 origins = [
@@ -117,6 +117,27 @@ def process_lesson(lesson_data: Lesson):
                 'processed': False,
                 'message': 'Unknown lesson status'
             }
+            
+            
+
+
+@app.post("/ask-ai")
+def ask_local_ai(question: str):
+    """
+    Ask a question to the local AI service.s
+    """
+    try:
+        response = ai_service.answer_query(question)
+        return {
+            "status": "success",
+            "question": question,
+            "answer": response
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
 
 
 if __name__ == "__main__":
